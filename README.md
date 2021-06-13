@@ -1,5 +1,6 @@
 ## Hexlet tests and linter status:
 [![Actions Status](https://github.com/ssk93-dev/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/ssk93-dev/frontend-project-lvl2/actions)
+[![tests and lint](https://github.com/ssk93-dev/frontend-project-lvl2/actions/workflows/testAndLint.yml/badge.svg)](https://github.com/ssk93-dev/frontend-project-lvl2/actions/workflows/testAndLint.yml)
 
 ## About
 Compares two configuration files and shows a difference.<br>

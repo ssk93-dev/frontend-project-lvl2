@@ -2,11 +2,10 @@ import * as fs from 'fs';
 import _ from 'lodash';
 import path from 'path';
 
+const getPath = (filename) => path.resolve(process.cwd(), filename);
 const genDiff = (filepath1, filepath2) => {
-  const path1 = path.resolve(process.cwd(), filepath1);
-  const path2 = path.resolve(process.cwd(), filepath2);
-  const contentFromFile1 = JSON.parse(fs.readFileSync(path1, 'utf8'));
-  const contentFromFile2 = JSON.parse(fs.readFileSync(path2, 'utf8'));
+  const contentFromFile1 = JSON.parse(fs.readFileSync(getPath(filepath1), 'utf8'));
+  const contentFromFile2 = JSON.parse(fs.readFileSync(getPath(filepath2), 'utf8'));
   const mergedKeys = _.union(Object.keys(contentFromFile1), Object.keys(contentFromFile2));
   const sortedMergedKeys = _.sortBy(mergedKeys);
   const result = sortedMergedKeys.reduce((acc, item) => {
