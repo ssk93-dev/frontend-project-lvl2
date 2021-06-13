@@ -6,8 +6,8 @@ const getPath = (filename) => path.resolve(process.cwd(), filename);
 const genDiff = (filepath1, filepath2) => {
   const contentFromFile1 = JSON.parse(fs.readFileSync(getPath(filepath1), 'utf8'));
   const contentFromFile2 = JSON.parse(fs.readFileSync(getPath(filepath2), 'utf8'));
-  const mergedKeys = _.union(Object.keys(contentFromFile1), Object.keys(contentFromFile2));
-  const sortedMergedKeys = _.sortBy(mergedKeys);
+  const sortedMergedKeys = _.sortBy(_.union(Object.keys(contentFromFile1),
+    Object.keys(contentFromFile2)));
   const result = sortedMergedKeys.reduce((acc, item) => {
     if (_.has(contentFromFile1, item) && _.has(contentFromFile2, item)) {
       if (contentFromFile1[item] === contentFromFile2[item]) {
