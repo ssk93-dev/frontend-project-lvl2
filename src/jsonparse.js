@@ -24,7 +24,8 @@ const genDiff = (filepath1, filepath2) => {
     }
     acc.push(`  - ${item}: ${contentFromFile1[item]}`);
     return acc;
-  }, []);
-  return `{\n${result.join('\n')}\n}`;
+  }, ['{']);
+  result.push('}');
+  return result.join('\n');
 };
 export default genDiff;
