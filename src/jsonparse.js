@@ -4,8 +4,10 @@ import path from 'path';
 
 const getPath = (filename) => path.resolve(process.cwd(), filename);
 const genDiff = (filepath1, filepath2) => {
-  const contentFromFile1 = JSON.parse(fs.readFileSync(getPath(filepath1), 'utf8'));
-  const contentFromFile2 = JSON.parse(fs.readFileSync(getPath(filepath2), 'utf8'));
+  const file1 = fs.readFileSync(getPath(filepath1), 'utf8');
+  const file2 = fs.readFileSync(getPath(filepath2), 'utf8');
+  const contentFromFile1 = JSON.parse(file1);
+  const contentFromFile2 = JSON.parse(file2);
   const keysFromFile1 = Object.keys(contentFromFile1);
   const keysFromFile2 = Object.keys(contentFromFile2);
   const sortedMergedKeys = _.sortBy(_.union(keysFromFile1, keysFromFile2));
