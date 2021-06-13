@@ -17,7 +17,9 @@ const genDiff = (filepath1, filepath2) => {
         acc.push(`    ${item}: ${contentFromFile1[item]}`);
         return acc;
       }
-      acc.push(`  - ${item}: ${contentFromFile1[item]}\n  + ${item}: ${contentFromFile2[item]}`);
+      acc.push(
+        `  - ${item}: ${contentFromFile1[item]}\n  + ${item}: ${contentFromFile2[item]}`,
+      );
       return acc;
     }
     if (_.has(contentFromFile2, item)) {
