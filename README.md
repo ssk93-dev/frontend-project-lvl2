@@ -6,33 +6,21 @@
 
 ## About
 Compares two configuration files and shows a difference.<br>
-### Example for 2 JSON files
+### Supported formats
+JSON, yml, yaml
+### How to use
 ```sh
-{
-    "host": "hexlet.io",
-    "timeout": 50,
-    "proxy": "123.234.53.22",
-    "follow": false
-  }
+gendiff [options] <filepath1> <filepath2>
 ```
+Options:
+* -V, --version        output the version number
+* -f, --format [type]  output format (default: "stylish")
+* -h, --help           display help for command
+### Installation
 ```sh
-{
-    "timeout": 20,
-    "verbose": true,
-    "host": "hexlet.io"
-  }
+git clone
+make install
+npm link
 ```
-[![asciicast](https://asciinema.org/a/ZYOUPs5v95Y8mwZOQIxE5lIH9.svg)](https://asciinema.org/a/ZYOUPs5v95Y8mwZOQIxE5lIH9)
-### Example for 2 YML files
-```sh
-    host: hexlet.io
-    timeout: 50
-    proxy: 123.234.53.22
-    follow: false
-```
-```sh
-    timeout: 20
-    verbose: true
-    host: hexlet.io
-```
-[![asciicast](https://asciinema.org/a/n5nroXdyqkMvDXHK7o0gNIKNo.svg)](https://asciinema.org/a/n5nroXdyqkMvDXHK7o0gNIKNo)
+### Example for JSON and yml files
+[![asciicast](https://asciinema.org/a/Hlca8E4vQJLov6Qa5uGkOKEMC.svg)](https://asciinema.org/a/Hlca8E4vQJLov6Qa5uGkOKEMC)
