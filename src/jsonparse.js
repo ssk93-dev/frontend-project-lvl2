@@ -30,25 +30,13 @@ const getDiffereces = (contentFromFile1, contentFromFile2) => {
   const commonKeys = _.union(keysFromFile1, keysFromFile2);
   const differences = commonKeys.map((item) => {
     if (!_.has(contentFromFile1, item)) {
-      return {
-        name: item,
-        value: contentFromFile2[item],
-        type: 'added',
-      };
+      return { name: item, value: contentFromFile2[item], type: 'added' };
     }
     if (!_.has(contentFromFile2, item)) {
-      return {
-        name: item,
-        value: contentFromFile1[item],
-        type: 'removed',
-      };
+      return { name: item, value: contentFromFile1[item], type: 'removed' };
     }
     if (contentFromFile1[item] === contentFromFile2[item]) {
-      return {
-        name: item,
-        value: contentFromFile1[item],
-        type: 'unchanged',
-      };
+      return { name: item, value: contentFromFile1[item], type: 'unchanged' };
     }
     return {
       name: item,
