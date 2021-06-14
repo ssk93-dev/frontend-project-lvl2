@@ -23,3 +23,16 @@ Compares two configuration files and shows a difference.<br>
   }
 ```
 [![asciicast](https://asciinema.org/a/ZYOUPs5v95Y8mwZOQIxE5lIH9.svg)](https://asciinema.org/a/ZYOUPs5v95Y8mwZOQIxE5lIH9)
+### Example for 2 YML files
+```sh
+    host: hexlet.io
+    timeout: 50
+    proxy: 123.234.53.22
+    follow: false
+```
+```sh
+    timeout: 20
+    verbose: true
+    host: hexlet.io
+```
+[![asciicast](https://asciinema.org/a/n5nroXdyqkMvDXHK7o0gNIKNo.svg)](https://asciinema.org/a/n5nroXdyqkMvDXHK7o0gNIKNo)
