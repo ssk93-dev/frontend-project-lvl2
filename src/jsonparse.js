@@ -23,23 +23,26 @@ const addDifferences = (acc, key, content1, content2, condition) => {
       return acc;
   }
 };
+const getDiffereces = (keys, content1, content2) => {
+  const differences = keys.reduce((acc, item) => {
+    if (_.has(content1, item) && _.has(content2, item)) {
+      return (content1[item] === content2[item])
+        ? addDifferences(acc, item, content1, content2, 'same')
+        : addDifferences(acc, item, content1, content2, 'different');
+    }
+    return _.has(content2, item)
+      ? addDifferences(acc, item, content1, content2, 'added')
+      : addDifferences(acc, item, content1, content2, 'removed');
+  }, ['{']);
+  differences.push('}');
+  return differences.join('\n');
+};
 const genDiff = (filepath1, filepath2) => {
   const contentFromFile1 = getContenet(filepath1);
   const contentFromFile2 = getContenet(filepath2);
   const keysFromFile1 = getKeys(contentFromFile1);
   const keysFromFile2 = getKeys(contentFromFile2);
   const sortedMergedKeys = _.sortBy(_.union(keysFromFile1, keysFromFile2));
-  const result = sortedMergedKeys.reduce((acc, item) => {
-    if (_.has(contentFromFile1, item) && _.has(contentFromFile2, item)) {
-      return (contentFromFile1[item] === contentFromFile2[item])
-        ? addDifferences(acc, item, contentFromFile1, contentFromFile2, 'same')
-        : addDifferences(acc, item, contentFromFile1, contentFromFile2, 'different');
-    }
-    return _.has(contentFromFile2, item)
-      ? addDifferences(acc, item, contentFromFile1, contentFromFile2, 'added')
-      : addDifferences(acc, item, contentFromFile1, contentFromFile2, 'removed');
-  }, ['{']);
-  result.push('}');
-  return result.join('\n');
+  return getDiffereces(sortedMergedKeys, contentFromFile1, contentFromFile2);
 };
 export default genDiff;
