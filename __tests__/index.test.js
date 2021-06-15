@@ -24,3 +24,7 @@ test('genDiff json-yml plain', () => {
   expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.yml'), 'plain'))
     .toEqual(fs.readFileSync(getFixturePath('rightPlain.txt'), 'utf-8'));
 });
+test('genDiff json-yml json', () => {
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.yml'), 'json'))
+    .toEqual(fs.readFileSync(getFixturePath('rightJson.txt'), 'utf-8'));
+});

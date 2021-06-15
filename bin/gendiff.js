@@ -8,7 +8,7 @@ program
   .version('0.0.1')
   .addOption(new commander.Option('-f, --format [type]', 'output format')
     .default('stylish', 'stylish')
-    .choices(['stylish', 'plain']))
+    .choices(['stylish', 'plain', 'json']))
   .arguments('<filepath1> <filepath2>')
   .action((filepath1, filepath2) => console.log(
     genDiff(filepath1, filepath2, program.opts().format),

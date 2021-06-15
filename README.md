@@ -6,15 +6,17 @@
 
 ## About
 Compares two configuration files and shows a difference.<br>
-### Supported formats
+### Supported file extensions
 JSON, yml, yaml
+### Supported output formats
+json, plain, stylish
 ### How to use
 ```sh
 gendiff [options] <filepath1> <filepath2>
 ```
 Options:
 * -V, --version        output the version number
-* -f, --format [type]  output format (choices: "stylish", "plain", default: stylish)
+* -f, --format [type]  output format (choices: "stylish", "plain", "json", default: stylish)
 * -h, --help           display help for command
 ### Installation
 ```sh
@@ -23,4 +25,4 @@ make install
 npm link
 ```
 ### Example for JSON and yml files
-[![asciicast](https://asciinema.org/a/HKCtLiOE8dMZFFcojm9UFqGCn.svg)](https://asciinema.org/a/HKCtLiOE8dMZFFcojm9UFqGCn)
+[![asciicast](https://asciinema.org/a/zX7hJjqMjmGYKhj67HVl3AHlJ.svg)](https://asciinema.org/a/zX7hJjqMjmGYKhj67HVl3AHlJ)
