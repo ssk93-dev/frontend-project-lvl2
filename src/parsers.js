@@ -5,6 +5,6 @@ const parsers = {
   '.yml': yaml.load,
   '.yaml': yaml.load,
 };
-const parse = (readFile, extension) => parsers[extension](readFile);
+const parse = (content, extension) => parsers[extension](content);
 
 export default parse;

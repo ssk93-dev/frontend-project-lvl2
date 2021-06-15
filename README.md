@@ -14,7 +14,7 @@ gendiff [options] <filepath1> <filepath2>
 ```
 Options:
 * -V, --version        output the version number
-* -f, --format [type]  output format (default: "stylish")
+* -f, --format [type]  output format (choices: "stylish", "plain", default: stylish)
 * -h, --help           display help for command
 ### Installation
 ```sh
@@ -23,4 +23,4 @@ make install
 npm link
 ```
 ### Example for JSON and yml files
-[![asciicast](https://asciinema.org/a/Hlca8E4vQJLov6Qa5uGkOKEMC.svg)](https://asciinema.org/a/Hlca8E4vQJLov6Qa5uGkOKEMC)
+[![asciicast](https://asciinema.org/a/HKCtLiOE8dMZFFcojm9UFqGCn.svg)](https://asciinema.org/a/HKCtLiOE8dMZFFcojm9UFqGCn)

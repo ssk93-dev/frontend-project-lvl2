@@ -30,5 +30,5 @@ const stylish = (differences, count = 0) => {
   });
   return `{\n${arrayOfDifferences.join('\n')}\n${getSpace(count)}}`;
 };
-const formatters = { stylish };
-export default formatters;
+
+export default stylish;
