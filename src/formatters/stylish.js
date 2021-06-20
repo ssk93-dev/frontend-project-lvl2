@@ -3,7 +3,7 @@ import _ from 'lodash';
 const getSpace = (count) => ('    '.repeat(count));
 const getString = (value, count = 0) => {
   if (!_.isObject(value)) {
-    return value;
+    return String(value);
   }
   const explainedValue = _.keys(value).map((item) => `${getSpace(count)}    ${item}: ${getString(value[item], count + 1)}`);
   return `{\n${explainedValue.join('\n')}\n${getSpace(count)}}`;
@@ -30,5 +30,6 @@ const stylish = (differences, count = 0) => {
   });
   return `{\n${arrayOfDifferences.join('\n')}\n${getSpace(count)}}`;
 };
+const makeStylish = (differences) => stylish(differences, 0);
 
-export default stylish;
+export default makeStylish;

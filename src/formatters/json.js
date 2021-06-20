@@ -1,3 +1,3 @@
-const json = (content) => JSON.stringify(content);
+const makeJson = (content) => JSON.stringify(content);
 
-export default json;
+export default makeJson;

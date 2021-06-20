@@ -7,7 +7,7 @@ const getValue = (value) => {
   if (typeof value === 'string') {
     return `'${value}'`;
   }
-  return value;
+  return String(value);
 };
 const getName = (item, parent) => (parent === '' ? `${item.name}` : `${parent}.${item.name}`);
 const plain = (differences, parent = '') => {
@@ -29,5 +29,6 @@ const plain = (differences, parent = '') => {
     });
   return arrayOfDifferences.join('\n');
 };
+const makePlain = (differences) => plain(differences, '');
 
-export default plain;
+export default makePlain;
