@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const getValue = (value) => {
+const getString = (value) => {
   if (_.isObject(value)) {
     return '[complex value]';
   }
@@ -11,14 +11,14 @@ const getValue = (value) => {
 };
 const getName = (item, parent) => (parent === '' ? `${item.name}` : `${parent}.${item.name}`);
 const plain = (differences, parent = '') => {
-  const arrayOfDifferences = differences
+  const lines = differences
     .filter((item) => item.type !== 'unchanged')
     .map((item) => {
       switch (item.type) {
         case 'changed':
-          return `Property '${getName(item, parent)}' was updated. From ${getValue(item.value.oldValue)} to ${getValue(item.value.newValue)}`;
+          return `Property '${getName(item, parent)}' was updated. From ${getString(item.value.oldValue)} to ${getString(item.value.newValue)}`;
         case 'added':
-          return `Property '${getName(item, parent)}' was added with value: ${getValue(item.value)}`;
+          return `Property '${getName(item, parent)}' was added with value: ${getString(item.value)}`;
         case 'removed':
           return `Property '${getName(item, parent)}' was removed`;
         case 'parent':
@@ -27,7 +27,7 @@ const plain = (differences, parent = '') => {
           throw new Error(`Type ${item.type} of ${item.name} not recognized`);
       }
     });
-  return arrayOfDifferences.join('\n');
+  return lines.join('\n');
 };
 const makePlain = (differences) => plain(differences, '');
 

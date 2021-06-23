@@ -13,13 +13,17 @@ const filesToCompare = [
   { file1: 'file1.json', file2: 'file2.yml' },
 ];
 
+const resultStylish = fs.readFileSync(getFixturePath('result_Stylish.txt'), 'utf-8');
+const resultPlain = fs.readFileSync(getFixturePath('result_Plain.txt'), 'utf-8');
+const resultJson = fs.readFileSync(getFixturePath('result_Json.txt'), 'utf-8');
+
 test.each(filesToCompare)('genDiff($file1, $file2)', ({ file1, file2 }) => {
   expect(genDiff(getFixturePath(file1), getFixturePath(file2)))
-    .toEqual(fs.readFileSync(getFixturePath('result_Stylish.txt'), 'utf-8'));
+    .toEqual(resultStylish);
   expect(genDiff(getFixturePath(file1), getFixturePath(file2), 'stylish'))
-    .toEqual(fs.readFileSync(getFixturePath('result_Stylish.txt'), 'utf-8'));
+    .toEqual(resultStylish);
   expect(genDiff(getFixturePath(file1), getFixturePath(file2), 'plain'))
-    .toEqual(fs.readFileSync(getFixturePath('result_Plain.txt'), 'utf-8'));
+    .toEqual(resultPlain);
   expect(genDiff(getFixturePath(file1), getFixturePath(file2), 'json'))
-    .toEqual(fs.readFileSync(getFixturePath('result_Json.txt'), 'utf-8'));
+    .toEqual(resultJson);
 });
